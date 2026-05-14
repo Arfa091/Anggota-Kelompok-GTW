@@ -21,7 +21,7 @@
     const firebaseConfig = {
       apiKey: "AIzaSyDummyKeyUntukDemoMonitoringIoT2024",
       authDomain: "monitoring-iot-demo.firebaseapp.com",
-      databaseURL: "https://monitoring-iot-demo-default-rtdb.asia-southeast1.firebasedatabase.app",
+      databaseURL: "https://monitoring-iot-6daae-default-rtdb.asia-southeast1.firebasedatabase.app/",
       projectId: "monitoring-iot-demo",
       storageBucket: "monitoring-iot-demo.appspot.com",
       messagingSenderId: "123456789012",
@@ -661,8 +661,8 @@
 
     // Tombol simulasi login memberikan notifikasi modern & smooth
     document.getElementById('loginBtnSimulate')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      alert("✨ Mode Demo: Silakan gunakan dashboard realtime di bawah. Sistem monitoring telah aktif dengan data simulasi cerdas. Untuk integrasi Firebase sebenarnya, setting config nyata.");
+  e.preventDefault();
+  window.location.href = "login.html";
     });
     document.getElementById('demoDashboardBtn')?.addEventListener('click', (e) => {
       e.preventDefault();
