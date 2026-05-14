@@ -6,6 +6,37 @@
   <title>Masuk | Monitoring IoT</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/login.css" />
+  <style>
+    /* Tambahan style untuk show password */
+    .password-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    .password-wrapper input {
+      flex: 1;
+      padding-right: 45px;
+    }
+    
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      cursor: pointer;
+      color: #94a3b8;
+      font-size: 1.2rem;
+      transition: color 0.2s;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .toggle-password:hover {
+      color: #3b82f6;
+    }
+  </style>
 </head>
 <body class="login-body">
   <div class="login-wrapper">
@@ -23,7 +54,12 @@
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" placeholder="••••••••" required />
+          <div class="password-wrapper">
+            <input type="password" id="password" placeholder="••••••••" required />
+            <button type="button" class="toggle-password" id="togglePassword">
+              <i class="fas fa-eye-slash"></i>
+            </button>
+          </div>
         </div>
         <div class="form-row">
           <label class="checkbox">
@@ -45,6 +81,31 @@
     </div>
   </div>
 
+  <!-- Font Awesome untuk ikon mata -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
   <script type="module" src="js/auth.js"></script>
+  
+  <!-- Script untuk show password -->
+  <script>
+    // Script untuk toggle show/hide password
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+    
+    if (togglePassword && passwordInput) {
+      togglePassword.addEventListener('click', function() {
+        // Toggle tipe input antara 'password' dan 'text'
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        
+        // Ganti ikon mata
+        const icon = this.querySelector('i');
+        if (icon) {
+          icon.classList.toggle('fa-eye-slash');
+          icon.classList.toggle('fa-eye');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
